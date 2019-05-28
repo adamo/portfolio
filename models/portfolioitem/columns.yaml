@@ -1,0 +1,11 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+      label: depcore.portfolio::lang.portfolioitem.label
+      searchable: true
+    slug:
+      label: depcore.portfolio::lang.portfolioitem.slug
+      type: text

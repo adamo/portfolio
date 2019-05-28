@@ -1,0 +1,65 @@
+{% set item = __SELF__.item %}
+{% partial 'PortfolioItem::hero' item=item %}
+<main class="portfolio">
+   <h1 class="super-title" style="transform: rotate(90deg);">{{ item.title|lower|replace({' ':''}) }}</h1>
+   <section class="grid__main description">
+      <section class="content__left content__padding-right">
+         {{ item.description|raw }}
+      </section>
+      <section class="content__right content__padding">
+         <ul class="work">
+            <li>
+               <h6>Klient</h6>
+               <p>{{ item.client.name }}</p>
+            </li>
+            <li>
+               <h6>Branża</h6>
+               <p>{{ item.client.industrieNames|join(', ') }}</p>
+            </li>
+            <li>
+               <h6>Usługi wykonane</h6>
+               <p>{{ item.categoryNames|join(', ') }}</p>
+            </li>
+         </ul>
+      </section>
+      {% if item.url %}
+      	<section class="cta__button"><a href="{{item.url}}" class='button'>Zobacz wersję online</a></section>
+      {% endif %}
+
+   </section>
+	<section class="grid__half">
+      <section class="content__image" style='background-color: {{ item.client.brand_color }};'>
+         {% if item.client.logo %}
+            <span>
+            	<img src="{{ item.client.logo|media }}" alt="{{ item.client.name }} Logo">
+            </span>
+         {% endif %}
+      </section>
+      <img src="{{ item.cover.path }}"  alt="">
+   </section>
+   {% for section in item.content %}
+     <section {{ section|getClassIdAndStyle }}>
+         {% for sc in section.contentSection %}
+            {% if sc.backgroundGridColor %}
+              <div class="background__grid" style="background-color: {{ sc.backgroundGridColor }}"></div>
+            {% endif %}
+
+            <div {{ sc|getClassIdAndStyle }}>
+               {% if sc._group == 'content' %}
+                  {% partial 'PortfolioItem::content' item=sc %}
+               {% elseif sc._group == 'browser' %}
+                  {% partial 'PortfolioItem::browser' item=sc %}
+               {% elseif sc._group == 'tablet' %}
+                  {% partial 'PortfolioItem::tablet' item=sc %}
+               {% elseif sc._group == 'mobile' %}
+                  {% partial 'PortfolioItem::mobile' item=sc %}
+               {% endif %}
+            </div>
+         {% endfor %}
+         {% for ai in section.aditionalImages %}
+           <img src="{{ ai.image|media }}"  {{ ai|getClassIdAndStyle }}>
+         {% endfor %}
+     </section>
+   {% endfor %}
+
+</main>

@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  parent:
+    label: depcore.portfolio::lang.industry.parent
+    type: relation
+    emptyOption: depcore.portfolio::lang.industry.choose_parent
+  name:
+    label: depcore.portfolio::lang.industry.name
+    type: text
+
+

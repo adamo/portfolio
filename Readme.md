@@ -1,0 +1,1 @@
+Testowy plugin do sprawdzenia widżetu

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: depcore.portfolio::lang.industry.label
+
+# Model Form Field configuration
+form: $/depcore/portfolio/models/industry/fields.yaml
+
+# Model Class name
+modelClass: Depcore\Portfolio\Models\Industry
+
+# Default redirect location
+defaultRedirect: depcore/portfolio/industries
+
+# Create page
+create:
+    title: depcore.portfolio::lang.industry.create_title
+    redirect: depcore/portfolio/industries/update/:id
+    redirectClose: depcore/portfolio/industries
+
+# Update page
+update:
+    title: depcore.portfolio::lang.industry.update_title
+    redirect: depcore/portfolio/industries
+    redirectClose: depcore/portfolio/industries
+
+# Preview page
+preview:
+    title: depcore.portfolio::lang.industry.preview_title

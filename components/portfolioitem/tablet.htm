@@ -1,0 +1,6 @@
+<div class="tablet__window {{ item.natural }} "><div class="screen">
+	{% if not item.natural  %}<img src="{{ item.browserImage|media}}" alt="">{% endif %}
+</div></div>
+{% if item.natural %}
+	<div class="img__container"><img src="{{ item.browserImage|media}}" alt=""></div>
+{% endif %}

@@ -1,0 +1,15 @@
+1.0.1: 'First version of portfolio'
+1.0.2:
+    - 'Create portfolio items table'
+    - create_portfolio_items_table.php
+1.0.3:
+    - 'Create clients table'
+    - create_portfolio_clients_table.php
+1.0.4:
+    - 'Create industries and categories table'
+    - create_industries_table.php
+    - create_categories_table.php
+1.0.5:
+    - Create intermiediate tables
+    - create_table_comapnies_industries.php
+    - create_portfolioitems_categories_table.php

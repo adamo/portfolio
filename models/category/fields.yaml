@@ -1,0 +1,9 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+      label: depcore.portfolio::lang.category.name
+      type: text
+

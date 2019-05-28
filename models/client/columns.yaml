@@ -1,0 +1,9 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+      label: depcore.portfolio::lang.client.label
+      type: text
+      searchable: true

@@ -1,0 +1,212 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+tabs:
+  stretch: true
+  defaultTab: depcore.portfolio::lang.portfolioitem.content_tab
+  # cssClass: text-blue
+  paneCssClass:
+      0: first-tab
+      1: second-tab
+  icons:
+      backend::lang.account.user: icon-user
+      backend::lang.account.groups: icon-group
+  fields:
+      client:
+        label: depcore.portfolio::lang.client.label
+        type: relation
+        emptyOption: depcore.portfolio::lang.portfolioitem.choose_client
+      categories:
+        label: depcore.portfolio::lang.category.label
+        type: relation
+      title:
+        label: depcore.portfolio::lang.portfolioitem.title
+        type: text
+        span: left
+      slug:
+        label: depcore.portfolio::lang.portfolioitem.slug
+        type: text
+        span: right
+      url:
+        label: depcore.portfolio::lang.portfolioitem.url
+        span: left
+        type: text
+      meta_title:
+        tab: SEO
+        type: text
+        label: depcore.portfolio::lang.portfolioitem.meta_title
+      meta:
+        tab: SEO
+        type: textarea
+        label: depcore.portfolio::lang.portfolioitem.meta_description
+        size: tiny
+      short_description:
+        label: depcore.portfolio::lang.portfolioitem.short_description
+        type: textarea
+      description:
+        tab: depcore.portfolio::lang.portfolioitem.content
+        label: depcore.portfolio::lang.portfolioitem.description
+        span: full
+        type: richeditor
+      cover:
+        tab: depcore.portfolio::lang.portfolioitem.content
+        type: fileupload
+        mode: file
+        label: depcore.portfolio::lang.portfolioitem.cover
+      content:
+        tab: depcore.portfolio::lang.portfolioitem.content
+        label: depcore.portfolio::lang.portfolioitem.content
+        span: full
+        type: repeater
+        prompt: depcore.portfolio::lang.portfolioitem.section.add_new_section
+        groups:
+          section:
+              name: depcore.portfolio::lang.portfolioitem.section.label
+              description: depcore.portfolio::lang.portfolioitem.section.description
+              icon: icon-square-o
+              fields:
+                  id:
+                    type: text
+                    label: depcore.portfolio::lang.portfolioitem.section.id
+                    description: depcore.portfolio::lang.portfolioitem.section.id_description
+                  class:
+                    type: text
+                    label: depcore.portfolio::lang.portfolioitem.section.class
+                  style:
+                    type: text
+                    label: depcore.portfolio::lang.portfolioitem.section.style
+                  backgroundImage:
+                    label: depcore.portfolio::lang.portfolioitem.section.background_image
+                    type: mediafinder
+                    mode: image
+                  backgroundGridColor:
+                    label: depcore.portfolio::lang.portfolioitem.section.background_color
+                    type: colorpicker
+                  aditionalImages:
+                    label: depcore.portfolio::lang.portfolioitem.section.additional_images
+                    type: repeater
+                    prompt: depcore.portfolio::lang.portfolioitem.section.add_new_image
+                    span: full
+                    form:
+                      fields:
+                        id:
+                          label: depcore.portfolio::lang.portfolioitem.section.image_id
+                          type: text
+                          span: left
+                        class:
+                          label: depcore.portfolio::lang.portfolioitem.section.image_class
+                          type: text
+                          span: right
+                        style:
+                          label: depcore.portfolio::lang.portfolioitem.section.image_style
+                          type: text
+                          span: left
+                        image:
+                          label: depcore.portfolio::lang.portfolioitem.section.image
+                          type: mediafinder
+                          mode: image
+                          span: right
+                  contentSection:
+                    label: depcore.portfolio::lang.portfolioitem.section.content_sections
+                    type: repeater
+                    prompt: depcore.portfolio::lang.portfolioitem.section.add_new_content_section
+                    span: full
+                    groups:
+                      content:
+                        icon: icon-file-text
+                        name: depcore.portfolio::lang.portfolioitem.section.content
+                        fields:
+                          id:
+                            label: depcore.portfolio::lang.portfolioitem.section.content_id
+                            type: text
+                            span: left
+                          class:
+                            label: depcore.portfolio::lang.portfolioitem.section.content_class
+                            type: text
+                            span: right
+                          style:
+                            label: depcore.portfolio::lang.portfolioitem.section.image_style
+                            type: text
+                            span: left
+                          content:
+                            label: depcore.portfolio::lang.portfolioitem.section.content_text
+                            type: richeditor
+                            span: full
+                          image:
+                            label: depcore.portfolio::lang.portfolioitem.section.image
+                            type: mediafinder
+                            mode: image
+                          imageCode:
+                            label: depcore.portfolio::lang.portfolioitem.section.image_code
+                            comment: depcore.portfolio::lang.portfolioitem.section.image_code_description
+                            type: textarea
+                            size: large
+                      browser:
+                        icon: icon-firefox
+                        name: depcore.portfolio::lang.portfolioitem.section.full_browser
+                        fields:
+                          id:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.id
+                            comment: depcore.portfolio::lang.portfolioitem.section.id_description
+                          class:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.class
+                          style:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.style
+                          device:
+                            label: depcore.portfolio::lang.portfolioitem.device_type
+                            type: dropdown
+                            emptyOption: depcore.portfolio::lang.portfolioitem.section.device.choose_style
+                            options:
+                              nostalgic: depcore.portfolio::lang.portfolioitem.section.browser.nostalgic
+                              anim: depcore.portfolio::lang.portfolioitem.section.browser.animate
+                          browserImage:
+                            label: depcore.portfolio::lang.portfolioitem.browser_image
+                            type: mediafinder
+                            mode: image
+                      tablet:
+                        name: depcore.portfolio::lang.portfolioitem.section.tablet
+                        icon: icon-tablet
+                        fields:
+                          id:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.id
+                            comment: depcore.portfolio::lang.portfolioitem.section.id_description
+                          class:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.class
+                          style:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.style
+                          browserImage:
+                            label: depcore.portfolio::lang.portfolioitem.browser_image
+                            type: mediafinder
+                            mode: image
+                          natural:
+                            label: depcore.portfolio::lang.portfolioitem.section.tablet.natural
+                            type: switch
+                            comment: depcore.portfolio::lang.portfolioitem.section.tablet.natural_description
+                      mobile:
+                        name: depcore.portfolio::lang.portfolioitem.section.mobile
+                        icon: icon-mobile
+                        fields:
+                          id:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.id
+                            comment: depcore.portfolio::lang.portfolioitem.section.id_description
+                          class:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.class
+                          style:
+                            type: text
+                            label: depcore.portfolio::lang.portfolioitem.section.style
+                          browserImage:
+                            label: depcore.portfolio::lang.portfolioitem.browser_image
+                            type: mediafinder
+                            mode: image
+
+      published:
+        label: depcore.portfolio::lang.portfolioitem.published?
+        type: switch

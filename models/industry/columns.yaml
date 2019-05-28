@@ -1,0 +1,12 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: depcore.portfolio::lang.industry.name
+        searchable: true
+    parent:
+        label: depcore.portfolio::lang.industry.parent
+        searchable: true
+        select: name

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: depcore.portfolio::lang.client.label
+
+# Model Form Field configuration
+form: $/depcore/portfolio/models/client/fields.yaml
+
+# Model Class name
+modelClass: Depcore\Portfolio\Models\Client
+
+# Default redirect location
+defaultRedirect: depcore/portfolio/clients
+
+# Create page
+create:
+    title: depcore.portfolio::lang.client.create_title
+    redirect: depcore/portfolio/clients/update/:id
+    redirectClose: depcore/portfolio/clients
+
+# Update page
+update:
+    title: depcore.portfolio::lang.client.update_title
+    redirect: depcore/portfolio/clients
+    redirectClose: depcore/portfolio/clients
+
+# Preview page
+preview:
+    title: depcore.portfolio::lang.client.preview_title

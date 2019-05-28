@@ -1,0 +1,32 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+      label: depcore.portfolio::lang.client.name
+      type: text
+    description:
+      label: depcore.portfolio::lang.client.description
+      type: richeditor
+    brand_color:
+      label: depcore.portfolio::lang.client.brand_color
+      type: colorpicker
+    industries:
+      label: depcore.portfolio::lang.client.industry
+      type: relation
+    website_url:
+      label: depcore.portfolio::lang.client.website_url
+      type: text
+    logo:
+      label: depcore.portfolio::lang.client.logo
+      type: mediafinder
+      mode: image
+    logo_mark:
+      label: depcore.portfolio::lang.client.logo_mark
+      type: mediafinder
+      mode: image
+    logo_black_white:
+      label: depcore.portfolio::lang.client.logo_black_white
+      type: mediafinder
+      mode: image

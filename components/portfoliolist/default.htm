@@ -1,0 +1,12 @@
+{% if  __SELF__.property('includeCategories')  %}
+  kategorie
+{% endif %}
+
+
+{% for item in __SELF__.portfolioItems %}
+	<div class="depcore-portfolio__item portfolio__link" style='background-color: {{ item.client.brand_color }}'>
+		<a href="{{ __SELF__.property('url') }}/{{ item.slug }}">
+			<img src="{{ item.client.logo|media }}" alt="{{ item.title }}">
+		</a>
+	</div>
+{% endfor %}

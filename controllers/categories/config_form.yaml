@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: depcore.portfolio::lang.category.label
+
+# Model Form Field configuration
+form: $/depcore/portfolio/models/category/fields.yaml
+
+# Model Class name
+modelClass: Depcore\Portfolio\Models\Category
+
+# Default redirect location
+defaultRedirect: depcore/portfolio/categories
+
+# Create page
+create:
+    title: depcore.portfolio::lang.category.create_title
+    redirect: depcore/portfolio/categories/update/:id
+    redirectClose: depcore/portfolio/categories
+
+# Update page
+update:
+    title: depcore.portfolio::lang.category.update_title
+    redirect: depcore/portfolio/categories
+    redirectClose: depcore/portfolio/categories
+
+# Preview page
+preview:
+    title: depcore.portfolio::lang.category.preview_title

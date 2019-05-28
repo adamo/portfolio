@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: depcore.portfolio::lang.portfolioitem.label
+
+# Model Form Field configuration
+form: $/depcore/portfolio/models/portfolioitem/fields.yaml
+
+# Model Class name
+modelClass: Depcore\Portfolio\Models\PortfolioItem
+
+# Default redirect location
+defaultRedirect: depcore/portfolio/portfolioitems
+
+# Create page
+create:
+    title: depcore.portfolio::lang.portfolioitem.create_title
+    redirect: depcore/portfolio/portfolioitems/update/:id
+    redirectClose: depcore/portfolio/portfolioitems
+
+# Update page
+update:
+    title: depcore.portfolio::lang.portfolioitem.update_title
+    redirect: depcore/portfolio/portfolioitems
+    redirectClose: depcore/portfolio/portfolioitems
+
+# Preview page
+preview:
+    title: depcore.portfolio::lang.portfolioitem.preview_title

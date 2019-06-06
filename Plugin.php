@@ -167,13 +167,13 @@ class Plugin extends PluginBase
     {
         if (is_array($div)) {
             $style = '';
-            if ( array_key_exists('class', $div) ) $style .= "class='{$div['class']}' ";
-            if ( array_key_exists('id', $div) ) $style .= "id='{$div['id']}' ";
-            if ( array_key_exists('backgroundImage', $div) ) {
+            if ( array_key_exists('class', $div) and $div['class'] != '') $style .= "class='{$div['class']}' ";
+            if ( array_key_exists('id', $div) and $div['id'] != '' ) $style .= "id='{$div['id']}' ";
+            if ( array_key_exists('backgroundImage', $div) and $div['backgroundImage'] != ''  ) {
                 $image = \Config::get('cms.storage.media.path').$div['backgroundImage'];
                 $div['style'] .= "background-image: url($image)";
             }
-            if (array_key_exists('style', $div)) $style .= "style='{$div['style']}'";
+            if (array_key_exists('style', $div) and $div['style'] != '' ) $style .= "style='{$div['style']}'";
             return $style;
         }
     }

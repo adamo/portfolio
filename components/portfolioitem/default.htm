@@ -28,11 +28,9 @@
 
    </section>
 	<section class="grid__half">
-      <section class="content__image" style='background-color: {{ item.client.brand_color }};'>
+      <section class="content__image portfolio__logo" style='background-color: {{ item.client.brand_color }};'>
          {% if item.client.logo %}
-            <span>
-            	<img src="{{ item.client.logo|media }}" alt="{{ item.client.name }} Logo">
-            </span>
+            <img src="{{ item.client.logo|media }}" alt="{{ item.client.name }} Logo">
          {% endif %}
       </section>
       <img src="{{ item.cover.path }}"  alt="">

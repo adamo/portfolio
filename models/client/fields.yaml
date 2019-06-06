@@ -13,8 +13,9 @@ fields:
       label: depcore.portfolio::lang.client.brand_color
       type: colorpicker
     industries:
-      label: depcore.portfolio::lang.client.industry
-      type: relation
+      label: depcore.portfolio::lang.industries.menu_label
+      type: partial
+      path: industries
     website_url:
       label: depcore.portfolio::lang.client.website_url
       type: text

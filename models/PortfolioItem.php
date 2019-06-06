@@ -84,7 +84,7 @@ class PortfolioItem extends Model
      **/
     public function scopePublished( $query )
     {
-        return $query->whereNotNull('published')->where ( 'published',true );
+        return $query->whereNotNull('published')->where ( 'published',true )->orderBy( 'sort_order' );
     }
 
     /**
@@ -109,10 +109,10 @@ class PortfolioItem extends Model
      * @author Adam
      * @todo implement behavior to insert
      **/
-    public function beforeSave()
-    {
+    // public function beforeSave()
+    // {
 
-    }
+    // }
 
     /**
      * Apply a constraint to the query to find the nearest sibling

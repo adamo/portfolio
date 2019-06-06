@@ -42,6 +42,11 @@ class PortfolioList extends ComponentBase
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'depcore.portfolio::lang.components.portfoliolist.max_items_numeric',
             ],
+            'randomize' => [
+                'title'             => 'depcore.portfolio::lang.components.portfoliolist.randomize',
+                'description'       => 'depcore.portfolio::lang.components.portfoliolist.randomize_description',
+                'type'              => 'checkbox',
+            ],
             'includeCategories' => [
                 'title'             => 'depcore.portfolio::lang.components.portfoliolist.include_categories',
                 'description'       => 'depcore.portfolio::lang.components.portfoliolist.include_categories_description',
@@ -78,7 +83,15 @@ class PortfolioList extends ComponentBase
     public function onRun()
     {
         $this->property('slug');
-        $this->portfolioItems = PortfolioItem::published()->get();
+        $this->portfolioItems = PortfolioItem::published();
+
+        if ($this->property( 'maxItems' ) !='')
+            $this->portfolioItems = $this->portfolioItems->take( $this->property( 'maxItems' ) );
+
+        if ($this->property( 'randomize' ))
+            $this->portfolioItems = $this->portfolioItems->get()->random($this->property( 'maxItems' ));
+        else
+            $this->portfolioItems = $this->portfolioItems->get();
 
     }
 

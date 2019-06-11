@@ -3,10 +3,13 @@
 return [
     'plugin' => [
         'name' => 'portfolio',
-        'description' => 'No description provided yet...',
+        'description' => 'Create and mange portfolios',
     ],
     'permissions' => [
-        'some_permission' => 'Permission example',
+        'manage_portfolios' => 'Manage portfolios',
+        'access_industries' => 'Manage Industries',
+        'access_clients' => 'Manage clients',
+        'access_categories' => 'Manage categories',
     ],
     'menu' => [
         'secondary' =>[

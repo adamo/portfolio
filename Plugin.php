@@ -85,12 +85,22 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
         return [
             'depcore.portfolio.create_portfolios' => [
                 'tab' => 'depcore.portfolio::lang.plugin.name',
-                'label' => 'depcore.portfolio::lang.permissions.some_permission'
+                'label' => 'depcore.portfolio::lang.permissions.manage_portfolios'
+            ],
+            'depcore.portfolio.access_industries' => [
+                'tab' => 'depcore.portfolio::lang.plugin.name',
+                'label' => 'depcore.portfolio::lang.permissions.access_industries'
+            ],
+            'depcore.portfolio.access_clients' => [
+                'tab' => 'depcore.portfolio::lang.plugin.name',
+                'label' => 'depcore.portfolio::lang.permissions.access_clients'
+            ],
+            'depcore.portfolio.access_categories' => [
+                'tab' => 'depcore.portfolio::lang.plugin.name',
+                'label' => 'depcore.portfolio::lang.permissions.access_categories'
             ],
         ];
     }
@@ -107,38 +117,38 @@ class Plugin extends PluginBase
                 'label'       => 'depcore.portfolio::lang.plugin.name',
                 'url'         => Backend::url('depcore/portfolio/portfolioitems'),
                 'icon'        => 'icon-briefcase',
-                'permissions' => ['depcore.portfolio.*'],
+                'permissions' => ['depcore.portfolio.manage_portfolios'],
                 'order'       => 500,
                 'sideMenu' => [
                     'items' => [
                         'label'       => 'depcore.portfolio::lang.portfolioitem.label',
                         'icon'        => 'icon-briefcase',
                         'url'         => Backend::url('depcore/portfolio/portfolioitems'),
-                        // 'permissions' => ['depcore.portfolio.access_resumes'],
+                        'permissions' => ['depcore.portfolio.manage_portfolios'],
                     ],
                     'categories' => [
                         'label'       => 'depcore.portfolio::lang.category.label',
                         'icon'        => 'icon-inbox',
                         'url'         => Backend::url('depcore/portfolio/categories'),
-                        // 'permissions' => ['depcore.portfolio.access_resumes'],
+                        'permissions' => ['depcore.portfolio.access_categories'],
                     ],
                     'clients' => [
                         'label'       => 'depcore.portfolio::lang.client.label',
                         'icon'        => 'icon-user',
                         'url'         => Backend::url('depcore/portfolio/clients'),
-                        // 'permissions' => ['depcore.portfolio.access_vacancies']
+                        'permissions' => ['depcore.portfolio.access_clients']
                     ],
                     'industries' => [
                         'label'       => 'depcore.portfolio::lang.industry.label',
                         'icon'        => 'icon-briefcase',
                         'url'         => Backend::url('depcore/portfolio/industries'),
-                        // 'permissions' => ['depcore.portfolio.access_categories']
+                        'permissions' => ['depcore.portfolio.access_industries']
                     ],
                     'settings' => [
                         'label'       => 'depcore.portfolio::lang.menu.secondary.settings',
                         'icon'        => 'icon-cog',
                         'url'         => Backend::url('system/settings/update/depcore/portfolio/form'),
-                        // 'permissions' => ['depcore.portfolio.access_settings']
+                        'permissions' => ['depcore.portfolio.access_settings']
                     ],
                 ], // side menu ends
             ],

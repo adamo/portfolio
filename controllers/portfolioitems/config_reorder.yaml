@@ -1,0 +1,5 @@
+title: backend::lang.reorder.default_title
+modelClass: Depcore\Portfolio\Models\PortfolioItem
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

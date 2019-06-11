@@ -3,6 +3,8 @@
 # ===================================
 
 columns:
+    sort_order:
+      invisible: true
     title:
       label: depcore.portfolio::lang.portfolioitem.label
       searchable: true

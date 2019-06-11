@@ -1,0 +1,33 @@
+<?= Form::open() ?>
+
+    <input type="hidden" name="manage_id" value="<?= $clientId ?>" />
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title"><?= Lang::get('depcore.portfolio::lang.portfolioitem.') ?></h4>
+    </div>
+
+    <div class="modal-body">
+        <?= $industryFormWidget->render() ?>
+    </div>
+
+    <div class="modal-footer">
+        <button
+            type="submit"
+            data-request="onCreateIndustry"
+            data-request-data="redirect:0"
+            data-hotkey="ctrl+s, cmd+s"
+            data-popup-load-indicator
+            class="btn btn-primary">
+            <?= Lang::get('depcore.portfolio::lang.client.new') ?>
+        </button>
+
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            <?= Lang::get('depcore.portfolio::lang.buttons.cancel') ?>
+        </button>
+    </div>
+
+<?= Form::close() ?>

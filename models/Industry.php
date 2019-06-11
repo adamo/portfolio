@@ -28,7 +28,7 @@ class Industry extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['parent_id','name'];
 
     /**
      * @var array Relations

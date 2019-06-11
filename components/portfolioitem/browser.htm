@@ -1,3 +1,13 @@
 <div class="browser__window {{ item.device }}"><div class="browser__head"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="lines"></div></div><div class="browser__content">
-<img src="{{ item.browserImage|media }}" alt="">
+	<img src="{{ item.browserImage|media }}" alt="">
+	{% for hotspot in item.hotspots %}
+	  <div class="hotspot" style='left:{{ hotspot.left }}%;top:{{ hotspot.top }}%'>
+          <div class="hotspot__content">
+             <span class="close"></span>
+             <h5>{{ hotspot.heading }}</h5>
+             {{ hotspot.content|raw }}
+          </div>
+          <button></button>
+       </div>
+	{% endfor %}
 </div></div>

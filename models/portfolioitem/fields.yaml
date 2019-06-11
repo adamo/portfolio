@@ -14,11 +14,13 @@ tabs:
   fields:
       client:
         label: depcore.portfolio::lang.client.label
-        type: relation
-        emptyOption: depcore.portfolio::lang.portfolioitem.choose_client
+        type: partial
+        path: client
+        # emptyOption: depcore.portfolio::lang.portfolioitem.choose_client
       categories:
         label: depcore.portfolio::lang.category.label
-        type: relation
+        type: partial
+        path: categories
       title:
         label: depcore.portfolio::lang.portfolioitem.title
         type: text
@@ -69,9 +71,11 @@ tabs:
                     type: text
                     label: depcore.portfolio::lang.portfolioitem.section.id
                     description: depcore.portfolio::lang.portfolioitem.section.id_description
+                    span: left
                   class:
                     type: text
                     label: depcore.portfolio::lang.portfolioitem.section.class
+                    span: right
                   style:
                     type: text
                     label: depcore.portfolio::lang.portfolioitem.section.style
@@ -79,9 +83,12 @@ tabs:
                     label: depcore.portfolio::lang.portfolioitem.section.background_image
                     type: mediafinder
                     mode: image
+                    span: left
                   backgroundGridColor:
                     label: depcore.portfolio::lang.portfolioitem.section.background_color
                     type: colorpicker
+                    span: right
+                    span: right
                   aditionalImages:
                     label: depcore.portfolio::lang.portfolioitem.section.additional_images
                     type: repeater
@@ -136,14 +143,68 @@ tabs:
                             label: depcore.portfolio::lang.portfolioitem.section.image
                             type: mediafinder
                             mode: image
+                            span: left
                           imageCode:
                             label: depcore.portfolio::lang.portfolioitem.section.image_code
                             comment: depcore.portfolio::lang.portfolioitem.section.image_code_description
                             type: textarea
                             size: large
+                            span: right
+                      colors:
+                        icon: icon-eyedropper
+                        name: depcore.portfolio::lang.portfolioitem.section.colors.label
+                        fields:
+                          id:
+                            label: depcore.portfolio::lang.portfolioitem.section.content_id
+                            type: text
+                            span: left
+                          class:
+                            label: depcore.portfolio::lang.portfolioitem.section.content_class
+                            type: text
+                            span: right
+                          style:
+                            label: depcore.portfolio::lang.portfolioitem.section.image_style
+                            type: text
+                            span: left
+                          colors:
+                            type: repeater
+                            prompt: depcore.portfolio::lang.portfolioitem.section.colors.add_new_color
+                            form:
+                              fields:
+                                colorcode:
+                                  label: depcore.portfolio::lang.portfolioitem.section.colors.color
+                                  type: colorpicker
+                                colorname:
+                                  type: text
+                                  label: depcore.portfolio::lang.portfolioitem.section.colors.colorname
+                      singleimage:
+                        icon: icon-file-image-o
+                        name: depcore.portfolio::lang.portfolioitem.section.singleimage.label
+                        fields:
+                          id:
+                            label: depcore.portfolio::lang.portfolioitem.section.content_id
+                            type: text
+                            span: left
+                          class:
+                            label: depcore.portfolio::lang.portfolioitem.section.content_class
+                            type: text
+                            span: right
+                          style:
+                            label: depcore.portfolio::lang.portfolioitem.section.image_style
+                            type: text
+                            span: left
+                          src:
+                            label: depcore.portfolio::lang.portfolioitem.section.singleimage.src
+                            type: mediafinder
+                            mode: image
+                            span: left
+                          alt:
+                            label: depcore.portfolio::lang.portfolioitem.section.singleimage.alt
+                            type: text
+                            span: right
                       browser:
                         icon: icon-firefox
-                        name: depcore.portfolio::lang.portfolioitem.section.full_browser
+                        name: depcore.portfolio::lang.portfolioitem.section.device.browser
                         fields:
                           id:
                             type: text
@@ -166,8 +227,27 @@ tabs:
                             label: depcore.portfolio::lang.portfolioitem.browser_image
                             type: mediafinder
                             mode: image
+                          hotspots:
+                            type: repeater
+                            form:
+                              fields:
+                                top:
+                                  label: depcore.portfolio::lang.portfolioitem.hotspots.top
+                                  type: number
+                                  span: left
+                                left:
+                                  label: depcore.portfolio::lang.portfolioitem.hotspots.left
+                                  type: number
+                                  span: right
+                                heading:
+                                  label: depcore.portfolio::lang.portfolioitem.hotspots.heading
+                                  type: text
+                                content:
+                                  label: depcore.portfolio::lang.portfolioitem.hotspots.content
+                                  type: richeditor
+                                  toolbarButtons: bold
                       tablet:
-                        name: depcore.portfolio::lang.portfolioitem.section.tablet
+                        name: depcore.portfolio::lang.portfolioitem.section.device.tablet
                         icon: icon-tablet
                         fields:
                           id:
@@ -189,7 +269,7 @@ tabs:
                             type: switch
                             comment: depcore.portfolio::lang.portfolioitem.section.tablet.natural_description
                       mobile:
-                        name: depcore.portfolio::lang.portfolioitem.section.mobile
+                        name: depcore.portfolio::lang.portfolioitem.section.device.mobile
                         icon: icon-mobile
                         fields:
                           id:

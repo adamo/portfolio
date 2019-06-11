@@ -51,6 +51,10 @@
                   {% partial 'PortfolioItem::tablet' item=sc %}
                {% elseif sc._group == 'mobile' %}
                   {% partial 'PortfolioItem::mobile' item=sc %}
+               {% elseif sc._group == 'colors' %}
+                  {% partial 'PortfolioItem::colors' item=sc %}
+               {% elseif sc._group == 'singleimage' %}
+                  {% partial 'PortfolioItem::image' image=sc %}
                {% endif %}
             </div>
          {% endfor %}

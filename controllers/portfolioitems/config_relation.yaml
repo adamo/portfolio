@@ -1,0 +1,18 @@
+categories:
+  label: depcore.portfolio::lang.categories.menu_label
+  name: depcore.portfolio::lang.categories.menu_label
+  view:
+    list: $/depcore/portfolio/models/category/columns.yaml
+    toolbarButtons: add|remove|create
+  manage:
+    form: $/depcore/portfolio/models/category/fields.yaml
+    showSearch: true
+client:
+  label: depcore.portfolio::lang.client.label
+  view:
+    form: $/depcore/portfolio/models/client/items_relation.yaml
+    toolbarButtons: link|unlink|add|create
+  manage:
+    list: $/depcore/portfolio/models/client/columns.yaml
+    form: $/depcore/portfolio/models/client/relation_fields.yaml
+    showSearch: true

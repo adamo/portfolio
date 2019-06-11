@@ -1,6 +1,5 @@
 industries:
   label: depcore.portfolio::lang.industries.menu_label
-  name: depcore.portfolio::lang.industries.menu_label
   view:
     list: $/depcore/portfolio/models/industry/columns.yaml
     toolbarButtons: add|remove|create

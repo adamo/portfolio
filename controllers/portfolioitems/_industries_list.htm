@@ -1,0 +1,33 @@
+<?php if (count($industries)): ?>
+    <div class="list-preview list-flush">
+        <div class="control-list">
+            <table class="table data" data-control="rowlink">
+                <thead>
+                    <tr>
+                        <th><span><?= Lang::get( 'depcore.portfolio::lang.industry.name' ) ?></span></th>
+                        <th style="width: 10%"><span></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($industries as $industry): ?>
+                        <tr>
+                            <td>
+                                <?= e($industry->name) ?> x
+                            </td>
+                            <td class="nolink text-right">
+                                <a
+                                    href="javascript:;"
+                                    data-request="onDeleteItem"
+                                    data-request-data="record_id: '<?= $industry->id ?>'"
+                                    data-request-confirm="Delete this industry?"
+                                    class="oc-icon-remove"
+                                    data-toggle="tooltip"
+                                    title="Remove"></a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php endif ?>

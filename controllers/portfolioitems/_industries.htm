@@ -1,0 +1,23 @@
+<div id="industriesList">
+    <?= $this->makePartial('industries_list', ['industries' => $model->industries]) ?>
+</div>
+
+<p>
+
+    <a
+        href="javascript:;"
+        class="btn btn-secondary oc-icon-plus"
+        data-control="popup"
+        data-handler="onRelationButtonAdd"
+        data-size="large">
+        <?= Lang::get( 'depcore.portfolio::lang.industry.add' ) ?>
+    </a>
+    <a
+        href="javascript:;"
+        class="btn btn-secondary oc-icon-plus"
+        data-control="popup"
+        data-handler="onLoadCreateIndustryForm"
+        data-size="large">
+        <?= Lang::get( 'depcore.portfolio::lang.industry.new' ) ?>
+    </a>
+</p>

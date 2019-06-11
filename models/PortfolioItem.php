@@ -30,7 +30,7 @@ class PortfolioItem extends Model
 
 
     public $rules = [
-        'client' => 'required',
+        // 'client' => 'required',
         'title' => 'required',
         'short_description' => 'required',
         'description' => 'required',

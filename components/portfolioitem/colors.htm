@@ -1,0 +1,11 @@
+{% for color in item.colors %}
+	<div class="color" style='background-color: {{ color.colorcode }};'>
+		<span>
+			{% if color.colorname %}
+	  			{{ color.colorname }}
+	  		{% else %}
+	  			{{ color.colorcode }}
+			{% endif %}
+	</span></div>
+{% endfor %}
+

@@ -1,3 +1,7 @@
+{% if item.image %}
+  <img src="{{ item.image|media }}" alt="logo" style="margin-bottom: 2rem;">
+{% endif %}
+
 {% for color in item.colors %}
 	<div class="color" style='background-color: {{ color.colorcode }};'>
 		<span>

@@ -1,7 +1,11 @@
-{% set item = __SELF__.item %}
-<section class="next__project" title="{{ item.nextPortfolioItem.title }}">
-   <a href="{{ item.nextPortfolioItem.slug }}">
-      <p>następna realizacja</p>
-      <h2 class="super-title" >{{ item.nextPortfolioItem.title }}</h2>
-   </a>
-</section>
+<div class="container">
+{% set portfolio = __SELF__.item %}
+<nav class='prev-next'>
+   {% if portfolio.prev%}
+      <a href="/case/{{ portfolio.prev.slug }}" ><svg viewBox='0 0 40 40'><use xlink:href='#more'></use></svg> <span>{{'zobacz także'|_}} <strong>{{ portfolio.prev.title }}</strong></span></a>
+   {% endif %}
+   {% if portfolio.next %}
+      <a href="/case/{{ portfolio.next.slug }}"><span>{{"zobacz także"|_}} <strong>{{ portfolio.next.title }}</strong></span> <svg viewBox='0 0 40 40'><use xlink:href='#more'></use></svg></a>
+   {% endif %}
+</nav>
+</div>

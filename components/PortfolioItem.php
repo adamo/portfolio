@@ -24,12 +24,8 @@ class PortfolioItem extends ComponentBase
     public function onRun()
     {
         $slug = $this->param('slug');
-        $this->item = Portfolio::where ( 'slug',$slug )->first (  );
-        if ($this->item->meta_title != '')
-            $this->page->title = $this->item->meta_title;
-        else $this->page->title = $this->item->title;
-
-        if ($this->item->meta != '') $this->page->meta_description = $this->item->meta;
+        $this->item = Portfolio::transWhere ( 'slug',$slug )->first (  );
+        $this->page['portfolio'] = $this->item;
     }
 
 

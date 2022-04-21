@@ -37,7 +37,15 @@ class Category extends Model
      */
 
     public $belongsToMany = [
-        'items'=>'\Depcore\Portfolio\Models\PortfolioItem',
+        'items'=>[
+            '\Depcore\Portfolio\Models\PortfolioItem',
+            'table' => 'depcore_portfolio_portfolio_items_categories',
+            'key' => 'category_id',
+            'foreign_key' => 'portfolio_item_id',
+        ]
     ];
 
+    public $attachOne = [
+        'cover' => '\System\Models\File',
+    ];
 }

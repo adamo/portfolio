@@ -1,0 +1,26 @@
+icon: icon-eyedropper
+name: depcore.portfolio::lang.portfolioitem.section.colors.label
+fields:
+  id:
+    label: depcore.portfolio::lang.portfolioitem.section.content_id
+    type: text
+    span: left
+  class:
+    label: depcore.portfolio::lang.portfolioitem.section.content_class
+    type: text
+    span: right
+  style:
+    label: depcore.portfolio::lang.portfolioitem.section.image_style
+    type: text
+    span: left
+  colors:
+    type: repeater
+    prompt: depcore.portfolio::lang.portfolioitem.section.colors.add_new_color
+    form:
+      fields:
+        colorcode:
+          label: depcore.portfolio::lang.portfolioitem.section.colors.color
+          type: colorpicker
+        colorname:
+          type: text
+          label: depcore.portfolio::lang.portfolioitem.section.colors.colorname

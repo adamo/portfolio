@@ -10,9 +10,21 @@ class Industry extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\Sortable;
     use \October\Rain\Database\Traits\SimpleTree;
+    use \October\Rain\Database\Traits\Sluggable;
+
+    protected $slugs = ['slug' => 'title'];
 
     public $rules = [
         'name' => 'required',
+    ];
+
+    public $implement = [
+        '@RainLab.Translate.Behaviors.TranslatableModel',
+    ];
+
+    public $translatable = [
+        'name',
+        ['slug', 'index' => true],
     ];
 
     /**
@@ -30,12 +42,15 @@ class Industry extends Model
      */
     protected $fillable = ['parent_id','name'];
 
-    /**
-     * @var array Relations
-     */
-    public $hasMany = [
-        'clients' => '\Depcore\Portfolio\Model\Client'
+    public $belongsToMany = [
+        'clients' => [
+            Client::class,
+            'table'     => 'depcore_portfolio_companies_industries',
+        ]
     ];
 
+    public $attachOne = [
+        'cover' => '\System\Models\File',
+    ];
 
 }

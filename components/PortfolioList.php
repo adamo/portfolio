@@ -1,6 +1,7 @@
 <?php namespace Depcore\Portfolio\Components;
 
 use Depcore\Portfolio\Models\PortfolioItem;
+use Depcore\Portfolio\Models\Category;
 use Cms\Classes\ComponentBase;
 
 class PortfolioList extends ComponentBase
@@ -84,14 +85,15 @@ class PortfolioList extends ComponentBase
     {
         $this->property('slug');
         $this->portfolioItems = PortfolioItem::published();
+        if ( is_int($this->property('categorySlug'))) $this->portfolioItems = Category::find( $this->property('categorySlug') )->items(  );
 
         if ($this->property( 'maxItems' ) !='')
             $this->portfolioItems = $this->portfolioItems->take( $this->property( 'maxItems' ) );
 
-        if ($this->property( 'randomize' ))
-            $this->portfolioItems = $this->portfolioItems->get()->random($this->property( 'maxItems' ));
-        else
-            $this->portfolioItems = $this->portfolioItems->get();
+        // if ($this->property( 'randomize' ))
+        //     $this->portfolioItems = $this->portfolioItems->get()->random($this->property( 'maxItems' ));
+        // else
+        $this->portfolioItems = $this->portfolioItems->get();
 
     }
 
@@ -103,6 +105,16 @@ class PortfolioList extends ComponentBase
     public function getCategoryUrlOptions()
     {
         return \Cms\Classes\Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
+    }
+
+    /**
+     * @param int $modelId
+     * @return array $categories
+     * @todo
+     **/
+    public function getCategoriesAsArray($modelId)
+    {
+        return Model::find( $id )->categories(  )->get()->toArray(  );
     }
 
 }

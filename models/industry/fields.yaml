@@ -10,5 +10,15 @@ fields:
   name:
     label: depcore.portfolio::lang.industry.name
     type: text
-
-
+    span: left
+  slug:
+    label: depcore.portfolio::lang.industry.slug
+    type: text
+    span: right
+    preset:
+      field: name
+      type: slug
+  cover:
+    label: depcore.portfolio::lang.industry.cover
+    type: fileupload
+    mode: image

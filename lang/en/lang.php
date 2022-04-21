@@ -12,7 +12,7 @@ return [
         'access_categories' => 'Manage categories',
     ],
     'menu' => [
-        'secondary' =>[
+        'secondary' => [
             'settings' => 'Settings',
         ],
     ],
@@ -64,14 +64,14 @@ return [
             'additional_images' => 'Aditional images',
             'browser_images' => 'Imge inside browser',
             'image_style' => 'Additional styles',
-            'add_new_section'=>'Add new section',
-            'add_new_image'=>'Add new image',
-            'content_sections'=>'Content sections',
-            'add_new_content_section'=>'Add new content section',
-            'device_type'=>'Device type',
-            'browser_image'=>'Image used in the device',
-            'image_code'=>'Image code',
-            'image_code_description'=>'Image code for example raw svg image',
+            'add_new_section' => 'Add new section',
+            'add_new_image' => 'Add new image',
+            'content_sections' => 'Content sections',
+            'add_new_content_section' => 'Add new content section',
+            'device_type' => 'Device type',
+            'browser_image' => 'Image used in the device',
+            'image_code' => 'Image code',
+            'image_code_description' => 'Image code for example raw svg image',
             'background_color' => 'Background color',
             'device' => [
                 'mobile' => 'Mobile view',
@@ -83,7 +83,7 @@ return [
                 'nostalgic' => 'Nostalgic (gray style)',
                 'animate' => 'Animated image',
             ],
-            'singleimage' =>[
+            'singleimage' => [
                 'alt' => 'Alternative text',
                 'alt_comment' => 'For SEO and accessability purposes',
                 'src' => 'Image source',
@@ -94,7 +94,30 @@ return [
                 'colorcode' => 'Color value',
                 'color' => 'Color name',
                 'colorname_comment' => 'If used will be displayed instead of color value',
+                'label' => 'depcore.portfolio::lang.portfolioitem.section.colors.label',
+                'colorname' => 'depcore.portfolio::lang.portfolioitem.section.colors.colorname',
             ],
+            'video_browser' => [
+                'label' => 'depcore.portfolio::lang.portfolioitem.section.video_browser.label',
+                'url' => 'depcore.portfolio::lang.portfolioitem.section.video_browser.url',
+                'url_description' => 'depcore.portfolio::lang.portfolioitem.section.video_browser.url_description',
+            ],
+            'tablet' => [
+                'natural' => 'depcore.portfolio::lang.portfolioitem.section.tablet.natural',
+                'natural_description' => 'depcore.portfolio::lang.portfolioitem.section.tablet.natural_description',
+            ],
+        ],
+        '' => 'depcore.portfolio::lang.portfolioitem.',
+        'gallery' => 'depcore.portfolio::lang.portfolioitem.gallery',
+        'published' => 'depcore.portfolio::lang.portfolioitem.published',
+        'section_with_browser' => [
+            'label' => 'depcore.portfolio::lang.portfolioitem.section_with_browser.label',
+            'description' => 'depcore.portfolio::lang.portfolioitem.section_with_browser.description',
+            'content_top' => 'depcore.portfolio::lang.portfolioitem.section_with_browser.content_top',
+            'row_background' => 'depcore.portfolio::lang.portfolioitem.section_with_browser.row_background',
+            'row_content_bottom' => 'depcore.portfolio::lang.portfolioitem.section_with_browser.row_content_bottom',
+            'background' => 'depcore.portfolio::lang.portfolioitem.section_with_browser.background',
+            'browser_image' => 'depcore.portfolio::lang.portfolioitem.section_with_browser.browser_image',
         ],
     ],
     'portfolioitems' => [
@@ -114,6 +137,7 @@ return [
         'preview_title' => 'Preview Category',
         'list_title' => 'Manage Categories',
         'name' => 'Category name',
+        'cover' => 'depcore.portfolio::lang.category.cover',
     ],
     'categories' => [
         'delete_selected_confirm' => 'Delete the selected Categories?',
@@ -133,6 +157,8 @@ return [
         'name' => 'Name',
         'parent' => 'Parent industry',
         'choose_parent' => 'Choose parent industry',
+        'add' => 'depcore.portfolio::lang.industry.add',
+        'cover' => 'depcore.portfolio::lang.industry.cover',
     ],
     'industries' => [
         'delete_selected_confirm' => 'Delete the selected Industries?',
@@ -175,6 +201,13 @@ return [
             'slug_description' => 'The attribute name which will be passed as slug',
             'max_items' => 'Count',
             'max_items_description' => 'How many per page itims should be displayed',
+            'url_required' => 'depcore.portfolio::lang.components.portfoliolist.url_required',
+            'slug_required' => 'depcore.portfolio::lang.components.portfoliolist.slug_required',
+            'max_items_numeric' => 'depcore.portfolio::lang.components.portfoliolist.max_items_numeric',
+            'randomize' => 'depcore.portfolio::lang.components.portfoliolist.randomize',
+            'randomize_description' => 'depcore.portfolio::lang.components.portfoliolist.randomize_description',
+            'include_categories' => 'depcore.portfolio::lang.components.portfoliolist.include_categories',
+            'include_categories_description' => 'depcore.portfolio::lang.components.portfoliolist.include_categories_description',
         ],
         'portfolioitem' => [
             'name' => 'PortfolioItem Component',
@@ -184,5 +217,12 @@ return [
             'name' => 'PortfolioNavigation Component',
             'description' => 'Display the portfolio items navigation',
         ],
+        'clientslist' => [
+            'name' => 'depcore.portfolio::lang.components.clientslist.name',
+            'description' => 'depcore.portfolio::lang.components.clientslist.description',
+        ],
+    ],
+    'buttons' => [
+        'cancel' => 'depcore.portfolio::lang.buttons.cancel',
     ],
 ];

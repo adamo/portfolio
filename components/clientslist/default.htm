@@ -1,0 +1,4 @@
+{% set clients = __SELF__.clients %}
+{% for client in clients %}
+    <div class="client"><img src="{{ client.logo|media }}" alt="{{ client.name}}"></div>
+{% endfor %}

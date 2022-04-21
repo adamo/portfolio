@@ -23,7 +23,7 @@
          </ul>
       </section>
       {% if item.url %}
-      	<section class="cta__button"><a href="{{item.url}}" class='button'>Zobacz wersję online</a></section>
+      	<section class="cta__button"><a href="{{item.url}}" class='button' rel='nofollow' target="_blank">Zobacz wersję online</a></section>
       {% endif %}
 
    </section>
@@ -36,32 +36,22 @@
       <img src="{{ item.cover.path }}"  alt="">
    </section>
    {% for section in item.content %}
-     <section {{ section|getClassIdAndStyle }}>
-         {% for sc in section.contentSection %}
-            {% if sc.backgroundGridColor %}
-              <div class="background__grid" style="background-color: {{ sc.backgroundGridColor }}"></div>
+      {% if section._group == 'doubleRowWithBrowser' %}
+         {% partial 'PortfolioItem::double' section=section %}
+      {% else %}
+         <section {{ section|getClassIdAndStyle }}>
+            {% if section.backgroundGridColor %}
+              <div class="background__grid" style="background-color: {{ section.backgroundGridColor }}"></div>
             {% endif %}
-
-            <div {{ sc|getClassIdAndStyle }}>
-               {% if sc._group == 'content' %}
-                  {% partial 'PortfolioItem::content' item=sc %}
-               {% elseif sc._group == 'browser' %}
-                  {% partial 'PortfolioItem::browser' item=sc %}
-               {% elseif sc._group == 'tablet' %}
-                  {% partial 'PortfolioItem::tablet' item=sc %}
-               {% elseif sc._group == 'mobile' %}
-                  {% partial 'PortfolioItem::mobile' item=sc %}
-               {% elseif sc._group == 'colors' %}
-                  {% partial 'PortfolioItem::colors' item=sc %}
-               {% elseif sc._group == 'singleimage' %}
-                  {% partial 'PortfolioItem::image' image=sc %}
-               {% endif %}
-            </div>
-         {% endfor %}
-         {% for ai in section.aditionalImages %}
-           <img src="{{ ai.image|media }}"  {{ ai|getClassIdAndStyle }}>
-         {% endfor %}
-     </section>
+            {% for sc in section.contentSection %}
+               <div {{ sc|getClassIdAndStyle }}>
+                  {% partial __SELF__ ~ "::" ~ sc._group item=sc %}
+               </div>
+            {% endfor %}
+            {% for ai in section.aditionalImages %}
+              <img src="{{ ai.image|media }}"  {{ ai|getClassIdAndStyle }}>
+            {% endfor %}
+         </section>
+      {% endif %}
    {% endfor %}
-
 </main>

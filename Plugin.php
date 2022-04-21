@@ -43,6 +43,7 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
+
         Event::listen('pages.menuitem.listTypes', function () {
             return [
                 'portfolio-item' => 'depcore.portfolio::lang.portfolioitem.label' ,
@@ -61,6 +62,7 @@ class Plugin extends PluginBase
                 return PortfolioItem::resolveMenuItem($item, $url, $theme);
             }
         });
+
     }
 
     /**
@@ -75,6 +77,7 @@ class Plugin extends PluginBase
             'Depcore\Portfolio\Components\PortfolioList' => 'PortfolioList',
             'Depcore\Portfolio\Components\PortfolioItem' => 'PortfolioItem',
             'Depcore\Portfolio\Components\PortfolioNavigation' => 'PortfolioNavigation',
+            'Depcore\Portfolio\Components\ClientsList' => 'brandsClientsList',
         ];
     }
 
@@ -126,6 +129,12 @@ class Plugin extends PluginBase
                         'url'         => Backend::url('depcore/portfolio/portfolioitems'),
                         'permissions' => ['depcore.portfolio.manage_portfolios'],
                     ],
+                    'create_portfolio' => [
+                        'label'       => 'depcore.portfolio::lang.portfolioitem.new',
+                        'icon'        => 'icon-plus',
+                        'url'         => Backend::url('depcore/portfolio/portfolioitems/create'),
+                        'permissions' => ['depcore.portfolio.manage_portfolios'],
+                    ],
                     'categories' => [
                         'label'       => 'depcore.portfolio::lang.category.label',
                         'icon'        => 'icon-inbox',
@@ -154,7 +163,6 @@ class Plugin extends PluginBase
             ],
         ];
     }
-
 
     public function registerMarkupTags()
     {
@@ -186,6 +194,15 @@ class Plugin extends PluginBase
             if (array_key_exists('style', $div) and $div['style'] != '' ) $style .= "style='{$div['style']}'";
             return $style;
         }
+    }
+
+    public function registerStormedModels()
+    {
+        return [
+            '\Depcore\Portfolio\Models\PortfolioItem' => [
+                'placement' => 'tabs',
+            ],
+        ];
     }
 
 }

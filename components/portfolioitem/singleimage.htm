@@ -1,0 +1,3 @@
+{% if item.src %}
+  <img src="{{ item.src|media }}" alt="{{ item.alt }}" {{ item|getClassIdAndStyle }}>
+{% endif %}

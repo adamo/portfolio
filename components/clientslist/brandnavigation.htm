@@ -1,0 +1,8 @@
+{% set industries= __SELF__.industries %}
+
+{% for industry in industries %}
+    <div class="image-box">
+        <a href="{{ url('/') }}/{{ __SELF__.property('url') }}/{{ industry.slug }}"><img src="{{ industry.cover.getThumb(314,196,{'mode':'crop'}) }}" alt=""></a>
+        <a href="{{ url('/') }}/{{ __SELF__.property('url') }}/{{ industry.slug }}" class='link'>{{ industry.name }}</a>
+    </div>
+{% endfor %}

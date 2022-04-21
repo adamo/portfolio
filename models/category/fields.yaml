@@ -6,4 +6,7 @@ fields:
     name:
       label: depcore.portfolio::lang.category.name
       type: text
-
+    cover:
+      label: depcore.portfolio::lang.category.cover
+      type: fileupload
+      mode: image

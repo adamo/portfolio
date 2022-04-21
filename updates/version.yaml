@@ -13,3 +13,11 @@
     - Create intermiediate tables
     - create_table_comapnies_industries.php
     - create_portfolioitems_categories_table.php
+1.0.6:
+    - Remove meta fields
+    - update_portfolio_tems_table.php
+1.0.7:
+    - Add slug to industry
+    - update_industry_table-1.php
+1.0.8:
+    - Add cover images to category and industry

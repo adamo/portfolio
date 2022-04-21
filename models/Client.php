@@ -35,8 +35,8 @@ class Client extends Model
 
     public $belongsToMany = [
         'industries' => [
-            '\Depcore\Portfolio\Models\Industry',
-            'table'     => 'depcore_portfolio_companies_industries',
+            Industry::class,
+            'table' => 'depcore_portfolio_companies_industries',
         ]
     ];
 

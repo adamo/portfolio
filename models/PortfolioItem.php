@@ -13,7 +13,10 @@ class PortfolioItem extends Model
     use \October\Rain\Database\Traits\Sluggable;
     use \October\Rain\Database\Traits\Sortable;
 
-    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+    public $implement = [
+        '@RainLab.Translate.Behaviors.TranslatableModel',
+        '@Renatio.SeoManager.Behaviors.SeoModel',
+    ];
 
     public $jsonable = ['content'];
 
@@ -23,20 +26,13 @@ class PortfolioItem extends Model
         'description',
         'content',
         'url',
-        'meta_title',
-        'meta',
-        'slug',
+        ['slug', 'index' => true],
     ];
 
-
     public $rules = [
-        // 'client' => 'required',
         'title' => 'required',
         'short_description' => 'required',
-        'description' => 'required',
         'url' => 'url',
-        'meta_title' => 'max:70',
-        'meta' => 'max:160',
     ];
 
     protected $slugs = ['slug' => 'title'];
@@ -73,8 +69,13 @@ class PortfolioItem extends Model
     ];
 
     public $attachOne = [
-        'cover' =>'\System\Models\File'
+        'cover' =>'\System\Models\File',
+        'banner' =>'\System\Models\File'
     ];
+
+    // public $attachMany = [
+    //     'gallery' =>'\System\Models\File'
+    // ];
 
     /**
      * get published portfolio items and order them
@@ -84,7 +85,7 @@ class PortfolioItem extends Model
      **/
     public function scopePublished( $query )
     {
-        return $query->whereNotNull('published')->where ( 'published',true )->orderBy( 'sort_order' );
+        return $query->whereNotNull('published')->where( 'published',true )->orderBy( 'sort_order' );
     }
 
     /**
@@ -145,11 +146,7 @@ class PortfolioItem extends Model
         $directionOrder = $isPrevious ? 'asc' : 'desc';
         $directionOperator = $isPrevious ? '>' : '<';
 
-        $query->where('id', '<>', $this->id);
-
-        // if (!is_null($this->$attribute)) {
-        //     $query->where($attribute, $directionOperator, $this->$attribute);
-        // }
+        return $query->where('id', '<>', $this->id);
 
         return $query->orderBy($attribute, $directionOrder);
     }
@@ -160,7 +157,9 @@ class PortfolioItem extends Model
      */
     public function nextPortfolioItem(  )
     {
-          return $this->published (  )->applySibling()->first (  );
+        $nextRecord = $this->published(  )->where( 'sort_order', '>',$this->sort_order )->first(  );
+          if ($nextRecord) return $nextRecord;
+          return self::published()->first();
     }
 
     /**
@@ -261,11 +260,9 @@ class PortfolioItem extends Model
                     'title'    => $item->title,
                     'url'      => $pageUrl.'/'.$item->slug,
                     'mtime'    => $item->updated_at,
-                    'isActive' => $item->is_published,
+                    'isActive' => $item->published,
                 ];
-
-            })->toArray();
-
+        })->toArray();
 
         return [
             'items' => $items,
